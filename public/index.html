@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="product-page row">
+      <div class="header-image">
+        <h1 class="title">Ethiopia Yirgacheffe</h1>
+        <div class="rating">
+          <span class="stars">★★★★☆</span> <span class="rating-value">4/5</span>
+        </div>
+        <ul class="product-gallery">
+          <li class="product-gallery__item">
+            <img
+              src="https://wearethetribe.no/wp-content/uploads/2024/06/2etiopia.jpg"
+              alt="Coffee Bag"
+              class="product-image"
+            />
+          </li>
+        </ul>
+      </div>
+
+      <div class="product-details">
+        <div class="price">Kr 199,00</div>
+        <p class="short-description">
+          Short description. Pellentesque habitant morbi tristique senectus et
+          netus et malesuada fames ac turpis egestas.
+        </p>
+
+        <div class="attributes">
+          <div>
+            <strong>Body</strong>
+            <div class="squares full"></div>
+          </div>
+          <div>
+            <strong>Sweetness</strong>
+            <div class="squares full"></div>
+          </div>
+          <div>
+            <strong>Acidity</strong>
+            <div class="squares medium"></div>
+          </div>
+        </div>
+
+        <select class="selector">
+          <option selected disabled>Select size</option>
+          <option>250g</option>
+          <option>500g</option>
+        </select>
+
+        <select class="selector">
+          <option selected disabled>Select Atributo1</option>
+          <option>Whole Bean</option>
+          <option>Ground</option>
+        </select>
+
+        <div class="quantity-add">
+          <input type="number" value="1" min="1" class="quantity" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="tabs-container">
+        <div class="tabs">
+          <button class="tab active" onclick="showTab('description', event)">
+            📄 <span class="label">Description</span>
+          </button>
+          <button class="tab" onclick="showTab('sizes', event)">
+            📏 <span class="label">Sizes</span>
+          </button>
+          <button class="tab" onclick="showTab('discounts', event)">
+            🏷️ <span class="label">Discounts</span>
+          </button>
+          <button class="tab" onclick="showTab('reviews', event)">
+            ⭐ <span class="label">Reviews</span>
+          </button>
+        </div>
+
+        <div class="tab-content" id="description">
+          <p>
+            <strong>Lorem Ipsum</strong> is simply dummy text of the printing
+            and typesetting industry...
+          </p>
+        </div>
+        <div class="tab-content" id="sizes" style="display: none">
+          <p>Size info here...</p>
+        </div>
+        <div class="tab-content" id="discounts" style="display: none">
+          <p>Discount info here...</p>
+        </div>
+        <div class="tab-content" id="reviews" style="display: none">
+          <p>Review info here...</p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
