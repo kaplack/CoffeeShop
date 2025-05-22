@@ -32,38 +32,63 @@
         </p>
 
         <div class="attributes">
-          <div>
-            <strong>Body</strong>
-            <div class="squares full"></div>
+          <div class="attribute">
+            <span class="label">Body:</span>
+            <div class="bar">
+              <div class="square filled"></div>
+              <div class="square filled"></div>
+              <div class="square filled"></div>
+              <div class="square"></div>
+              <div class="square"></div>
+            </div>
           </div>
-          <div>
-            <strong>Sweetness</strong>
-            <div class="squares full"></div>
+
+          <div class="attribute">
+            <span class="label">Sweetness:</span>
+            <div class="bar">
+              <div class="square filled"></div>
+              <div class="square filled"></div>
+              <div class="square filled"></div>
+              <div class="square filled"></div>
+              <div class="square"></div>
+            </div>
           </div>
-          <div>
-            <strong>Acidity</strong>
-            <div class="squares medium"></div>
+
+          <div class="attribute">
+            <span class="label">Acidity:</span>
+            <div class="bar">
+              <div class="square filled"></div>
+              <div class="square filled"></div>
+              <div class="square filled"></div>
+              <div class="square filled"></div>
+              <div class="square filled"></div>
+            </div>
           </div>
         </div>
 
-        <div class="radio-group">
-          <label class="group-label">Size</label>
+        <div>
+          <h4>Size</h4>
+          <div class="radio-group">
+            <input type="radio" name="size" id="size-250g" value="250g" />
+            <label for="size-250g">250g</label>
 
-          <input type="radio" name="size" id="size-250g" value="250g" />
-          <label for="size-250g">250g</label>
+            <input type="radio" name="size" id="size-500g" value="500g" />
+            <label for="size-500g">500g</label>
 
-          <input type="radio" name="size" id="size-500g" value="500g" />
-          <label for="size-500g">500g</label>
-
-          <input type="radio" name="size" id="size-1kg" value="1kg" />
-          <label for="size-1kg">1kg</label>
+            <input type="radio" name="size" id="size-1kg" value="1kg" />
+            <label for="size-1kg">1kg</label>
+          </div>
         </div>
+        <div>
+          <h4>attribute1</h4>
+          <div class="radio-group">
+            <input type="radio" name="ground" id="whole-bean" value="250g" />
+            <label for="whole-bean">Whole Bean</label>
 
-        <select class="selector">
-          <option selected disabled>Select Atributo1</option>
-          <option>Whole Bean</option>
-          <option>Ground</option>
-        </select>
+            <input type="radio" name="ground" id="ground" value="500g" />
+            <label for="ground">Ground</label>
+          </div>
+        </div>
 
         <div class="quantity-add">
           <input type="number" value="1" min="1" class="quantity" />

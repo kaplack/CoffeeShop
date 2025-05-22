@@ -55,6 +55,78 @@ body {
   cursor: pointer;
 }
 
+/******************************************************* radio */
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.group-label {
+  flex-basis: 100%;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #3e4a3b;
+}
+
+.radio-group input[type="radio"] {
+  display: none;
+}
+
+.radio-group label {
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  background-color: white;
+}
+
+.radio-group input[type="radio"]:checked + label {
+  background-color: #900020;
+  color: white;
+  border-color: #900020;
+}
+
+/******************************************************** atributos */
+.attributes {
+  display: flex;
+  flex-direction: column;
+
+  font-family: Arial, sans-serif;
+}
+
+.attribute {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.label {
+  width: 100px;
+
+  color: #101010;
+}
+
+.bar {
+  display: flex;
+  gap: 5px;
+}
+
+.square {
+  width: 20px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 2px;
+}
+
+.square.filled {
+  background-color: #73de77;
+}
+
 /******************************************************* Product content */
 
 .price {
@@ -72,10 +144,9 @@ body {
 }
 
 .attributes div {
-  margin: 5px 0;
+  margin-bottom: 5px;
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
 .squares {
@@ -109,17 +180,20 @@ body {
 
 .quantity {
   width: 60px;
-  padding: 6px;
+  padding: 15px 15px;
   border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 5px;
 }
 
 .add-to-cart {
-  background-color: #a63a3a;
+  background-color: #900020;
   color: white;
   border: none;
   padding: 10px 15px;
   cursor: pointer;
   box-shadow: 2px 2px 5px #999;
+  border-radius: 5px;
 }
 
 /********************************************************* Contenedor rojo: pestañas y contenido */
