@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Page</title>
-    <link rel="stylesheet" href="public/styles.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="product-page row">
@@ -46,11 +46,18 @@
           </div>
         </div>
 
-        <select class="selector">
-          <option selected disabled>Select size</option>
-          <option>250g</option>
-          <option>500g</option>
-        </select>
+        <div class="radio-group">
+          <label class="group-label">Size</label>
+
+          <input type="radio" name="size" id="size-250g" value="250g" />
+          <label for="size-250g">250g</label>
+
+          <input type="radio" name="size" id="size-500g" value="500g" />
+          <label for="size-500g">500g</label>
+
+          <input type="radio" name="size" id="size-1kg" value="1kg" />
+          <label for="size-1kg">1kg</label>
+        </div>
 
         <select class="selector">
           <option selected disabled>Select Atributo1</option>
@@ -97,6 +104,6 @@
         </div>
       </div>
     </div>
-    <script src="public/script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
