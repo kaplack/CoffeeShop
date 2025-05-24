@@ -1,78 +1,64 @@
-// GALLERY
-const gallery = document.querySelector(".product-gallery");
-const prevBtn = document.querySelector(".carousel-button.prev");
-const nextBtn = document.querySelector(".carousel-button.next");
-
-let index = 0;
-
-nextBtn.addEventListener("click", () => {
-  if (index < gallery.children.length - 1) index++;
-  gallery.style.transform = `translateX(-${index * 100}%)`;
+// Inicializa el Swiper principal
+const mainSwiper = new Swiper(".main-swiper", {
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
 });
 
-prevBtn.addEventListener("click", () => {
-  if (index > 0) index--;
-  gallery.style.transform = `translateX(-${index * 100}%)`;
-});
-
-// MODAL
-
-const images = document.querySelectorAll(".product-image");
+// Modal y Swiper en el modal
 const modal = document.getElementById("imageModal");
-const modalTrack = modal.querySelector(".modal-track");
-const closeBtn = modal.querySelector(".modal-close");
-const prevBtM = modal.querySelector(".modal-nav.prev");
-const nextBtM = modal.querySelector(".modal-nav.next");
+const closeBtn = document.querySelector(".modal-close");
+const modalWrapper = modal.querySelector(".modal-swiper .swiper-wrapper");
+let modalSwiper;
 
-let currentIndex = 0;
-let imageSources = [];
+const productImages = document.querySelectorAll(".product-image");
+const imageSources = Array.from(productImages).map((img) => img.src);
 
-images.forEach((img) => {
-  imageSources.push(img.src);
-});
+productImages.forEach((img, index) => {
+  img.addEventListener("click", () => {
+    // Vaciar e insertar imágenes
+    modalWrapper.innerHTML = "";
+    imageSources.forEach((src) => {
+      const slide = document.createElement("div");
+      slide.classList.add("swiper-slide");
+      slide.innerHTML = `<img src="${src}" />`;
+      modalWrapper.appendChild(slide);
+    });
 
-function openModal(index) {
-  currentIndex = index;
-  modalTrack.innerHTML = "";
-  imageSources.forEach((src) => {
-    const img = document.createElement("img");
-    img.src = src;
-    modalTrack.appendChild(img);
-    console.log("Agregada imagen al modal:", src); // DEBUG
+    modal.style.display = "flex";
+
+    // Iniciar Swiper del modal
+    modalSwiper = new Swiper(".modal-swiper", {
+      initialSlide: index,
+      loop: true,
+      navigation: {
+        nextEl: ".modal-swiper .swiper-button-next",
+        prevEl: ".modal-swiper .swiper-button-prev",
+      },
+      pagination: {
+        el: ".modal-swiper .swiper-pagination",
+        clickable: true,
+      },
+    });
   });
-  modal.style.display = "block";
-  updateSlidePosition();
-}
-
-function updateSlidePosition() {
-  modalTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
-
-images.forEach((img, index) => {
-  img.addEventListener("click", () => openModal(index));
 });
 
+// Cerrar modal
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
+  if (modalSwiper) modalSwiper.destroy(true, true);
 });
 
-prevBtM.addEventListener("click", () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateSlidePosition();
-  }
-});
-
-nextBtM.addEventListener("click", () => {
-  if (currentIndex < imageSources.length - 1) {
-    currentIndex++;
-    updateSlidePosition();
-  }
-});
-
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
     modal.style.display = "none";
+    if (modalSwiper) modalSwiper.destroy(true, true);
   }
 });
 

@@ -181,6 +181,7 @@ body {
 }
 
 .add-to-cart {
+  font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
   background-color: var(--color-dark-red);
   color: white;
@@ -246,56 +247,29 @@ body {
   color: var(--color-black);
 }
 
-/******************************************************* carrousel */
-
-.gallery-carousel {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
+/********************************************************************** SWIPER */
+.swiper {
+  /* width: 100vw; */
+  max-width: 600px;
+  height: 400px;
+  margin: 2rem auto;
 }
 
-.product-gallery {
+.swiper-slide {
   display: flex;
-  transition: transform 0.3s ease-in-out;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  align-items: center;
+  justify-content: center;
+  background: #f2f2f2;
 }
 
-.product-gallery__item {
-  min-width: 100%;
-  box-sizing: border-box;
-}
-
-.product-image {
-  width: 100%;
-  display: block;
-}
-
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-
-  border: none;
-  padding: 10px;
+.swiper-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   cursor: pointer;
-  z-index: 1;
-  font-size: 24px;
 }
 
-.carousel-button.prev {
-  left: 10px;
-}
-
-.carousel-button.next {
-  right: 10px;
-}
-
-/******************************************************* modal */
+/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -304,61 +278,37 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.95);
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-close {
   position: absolute;
   top: 20px;
   right: 30px;
-  color: #e0e0e0;
   font-size: 40px;
-  font-weight: bold;
+  color: white;
   cursor: pointer;
   z-index: 1001;
 }
 
-.modal-carousel {
-  position: relative;
-  height: 100%;
+.modal .swiper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal .swiper-slide {
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.modal-track {
-  display: flex;
-  transition: transform 0.3s ease-in-out;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-
-.modal-track img {
-  flex: 0 0 100%;
-  max-width: 100%;
+.modal .swiper-slide img {
+  max-width: 100vw;
   max-height: 100vh;
   object-fit: contain;
-}
-
-.modal-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  color: #e0e0e0;
-  font-size: 48px;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.modal-nav.prev {
-  left: 20px;
-}
-
-.modal-nav.next {
-  right: 20px;
 }
 
 /* Responsive */

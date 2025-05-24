@@ -12,6 +12,13 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </head>
   <body>
     <div class="product-page row">
@@ -20,34 +27,43 @@
         <div class="rating">
           <span class="stars">★★★★☆</span> <span class="rating-value">4/5</span>
         </div>
-        <div class="gallery-carousel">
-          <button class="carousel-button prev">&#10094;</button>
-          <ul class="product-gallery">
-            <li class="product-gallery__item">
+        <!-- Swiper Carousel on Page -->
+        <div class="swiper main-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
               <img
                 src="https://wearethetribe.no/wp-content/uploads/2024/06/2etiopia.jpg"
-                alt="Coffee Bag"
                 class="product-image"
               />
-            </li>
-            <li class="product-gallery__item">
+            </div>
+            <div class="swiper-slide">
               <img
                 src="https://wearethetribe.no/wp-content/uploads/2024/06/etiopia.jpg"
-                alt="Coffee Bag"
                 class="product-image"
               />
-            </li>
-          </ul>
-          <button class="carousel-button next">&#10095;</button>
-          <div id="imageModal" class="modal">
-            <span class="modal-close">&times;</span>
-            <div class="modal-carousel">
-              <button class="modal-nav prev">&#10094;</button>
-              <div class="modal-track">
-                <!-- Las imágenes se inyectan dinámicamente -->
-              </div>
-              <button class="modal-nav next">&#10095;</button>
             </div>
+            <div class="swiper-slide">
+              <img
+                src="https://wearethetribe.no/wp-content/uploads/2024/06/retira.jpg"
+                class="product-image"
+              />
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- Modal Swiper -->
+        <div id="imageModal" class="modal">
+          <span class="modal-close">&times;</span>
+          <div class="swiper modal-swiper">
+            <div class="swiper-wrapper">
+              <!-- Images will be loaded here dynamically -->
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
           </div>
         </div>
       </div>
