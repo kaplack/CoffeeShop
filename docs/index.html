@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Page</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="product-page row">
@@ -13,15 +20,36 @@
         <div class="rating">
           <span class="stars">★★★★☆</span> <span class="rating-value">4/5</span>
         </div>
-        <ul class="product-gallery">
-          <li class="product-gallery__item">
-            <img
-              src="https://wearethetribe.no/wp-content/uploads/2024/06/2etiopia.jpg"
-              alt="Coffee Bag"
-              class="product-image"
-            />
-          </li>
-        </ul>
+        <div class="gallery-carousel">
+          <button class="carousel-button prev">&#10094;</button>
+          <ul class="product-gallery">
+            <li class="product-gallery__item">
+              <img
+                src="https://wearethetribe.no/wp-content/uploads/2024/06/2etiopia.jpg"
+                alt="Coffee Bag"
+                class="product-image"
+              />
+            </li>
+            <li class="product-gallery__item">
+              <img
+                src="https://wearethetribe.no/wp-content/uploads/2024/06/etiopia.jpg"
+                alt="Coffee Bag"
+                class="product-image"
+              />
+            </li>
+          </ul>
+          <button class="carousel-button next">&#10095;</button>
+          <div id="imageModal" class="modal">
+            <span class="modal-close">&times;</span>
+            <div class="modal-carousel">
+              <button class="modal-nav prev">&#10094;</button>
+              <div class="modal-track">
+                <!-- Las imágenes se inyectan dinámicamente -->
+              </div>
+              <button class="modal-nav next">&#10095;</button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="product-details">
@@ -95,7 +123,35 @@
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
-
+      <div class="description">
+        <h2>Product Description</h2>
+        <table class="product-info-table">
+          <tr>
+            <td><strong>Origin:</strong></td>
+            <td>Yirgacheffe, Ethiopia</td>
+          </tr>
+          <tr>
+            <td><strong>Roast:</strong></td>
+            <td>Filter / Espresso</td>
+          </tr>
+          <tr>
+            <td><strong>Producer:</strong></td>
+            <td>Edido Washing Station</td>
+          </tr>
+          <tr>
+            <td><strong>Altitude:</strong></td>
+            <td>1850 - 1880 Meters</td>
+          </tr>
+          <tr>
+            <td><strong>Varietal:</strong></td>
+            <td>Mixed Heirloom</td>
+          </tr>
+          <tr>
+            <td><strong>Process:</strong></td>
+            <td>Washed</td>
+          </tr>
+        </table>
+      </div>
       <div class="tabs-container">
         <div class="tabs">
           <button class="tab active" onclick="showTab('description', event)">

@@ -1,6 +1,15 @@
+:root {
+  --color-black: #0a0a0a;
+  --color-light-gray: #e0e0e0;
+  --color-forest-green: #3e4a3b;
+  --color-light-green: #73de77;
+  --color-red-brick: #a63a3a;
+  --color-dark-red: #900020;
+}
+
 /* Layout general */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
   background: #fff;
   color: #0a0a0a;
   padding: 10px;
@@ -11,6 +20,8 @@ body {
   max-width: 900px;
   margin: auto;
 }
+
+/*******************************************************  */
 
 .product-page {
   display: flex;
@@ -27,6 +38,7 @@ body {
 }
 
 .title {
+  font-family: "Roboto", sans-serif;
   font-size: 1.8em;
   margin-bottom: 0.2em;
 }
@@ -68,7 +80,7 @@ body {
   flex-basis: 100%;
   font-weight: bold;
   margin-bottom: 5px;
-  color: #3e4a3b;
+  color: var(--color-forest-green);
 }
 
 .radio-group input[type="radio"] {
@@ -77,7 +89,7 @@ body {
 
 .radio-group label {
   padding: 8px 15px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-light-gray);
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
@@ -86,9 +98,9 @@ body {
 }
 
 .radio-group input[type="radio"]:checked + label {
-  background-color: #900020;
+  background-color: var(--color-dark-red);
   color: white;
-  border-color: #900020;
+  border-color: var(--color-dark-red);
 }
 
 /******************************************************** atributos */
@@ -108,7 +120,7 @@ body {
 .label {
   width: 100px;
 
-  color: #101010;
+  color: var(--color-black);
 }
 
 .bar {
@@ -119,18 +131,18 @@ body {
 .square {
   width: 20px;
   height: 20px;
-  background-color: #ccc;
+  background-color: var(--color-light-gray);
   border-radius: 2px;
 }
 
 .square.filled {
-  background-color: #73de77;
+  background-color: var(--color-light-green);
 }
 
 /******************************************************* Product content */
 
 .price {
-  color: #900020;
+  color: var(--color-dark-red);
   font-weight: bold;
   font-size: 2em;
   margin-bottom: 10px;
@@ -140,7 +152,7 @@ body {
 
 .short-description {
   margin-bottom: 15px;
-  color: #3e4a3b;
+  color: var(--color-forest-green);
 }
 
 .attributes div {
@@ -154,24 +166,6 @@ body {
   gap: 2px;
 }
 
-.squares.full::before {
-  content: "■ ■ ■ ■ ■";
-  color: #a63a3a;
-}
-
-.squares.medium::before {
-  content: "■ ■ ■ ■";
-  color: #a63a3a;
-}
-
-.selector {
-  width: 100%;
-  padding: 6px;
-  margin: 10px 0;
-  background: white;
-  border: 1px solid #ccc;
-}
-
 .quantity-add {
   display: flex;
   gap: 10px;
@@ -180,20 +174,37 @@ body {
 
 .quantity {
   width: 60px;
-  padding: 15px 15px;
-  border: 1px solid #ccc;
+  padding: 15px 12px !important;
+  border: 1px solid var(--color-light-gray);
   padding: 0.5rem;
   border-radius: 5px;
 }
 
 .add-to-cart {
-  background-color: #900020;
+  font-size: 1.5rem;
+  background-color: var(--color-dark-red);
   color: white;
   border: none;
   padding: 10px 15px;
   cursor: pointer;
-  box-shadow: 2px 2px 5px #999;
+  box-shadow: 2px 2px 5px var(--color-light-gray);
   border-radius: 5px;
+}
+
+/********************************************************* General Description */
+.description {
+  flex: 1 0 400px;
+}
+.product-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  color: var(--color-black);
+}
+
+.product-info-table td {
+  padding: 10px;
+  border: 1px solid var(--color-light-gray);
 }
 
 /********************************************************* Contenedor rojo: pestañas y contenido */
@@ -207,7 +218,7 @@ body {
 .tabs {
   display: flex;
   gap: 10px;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid var(--color-light-gray);
   margin-bottom: 10px;
   flex-wrap: wrap;
 }
@@ -218,21 +229,136 @@ body {
   padding: 10px;
   cursor: pointer;
   border-bottom: 3px solid transparent;
-  color: rgb(133, 133, 133);
+  color: var(--color-light-gray);
   font-weight: bold;
 }
 
 .tab.active {
-  border-bottom: 3px solid #3e4a3b;
-  background-color: #e0e0e0;
-  color: #0a0a0a;
+  border-bottom: 3px solid var(--color-forest-green);
+  background-color: var(--color-light-gray);
+  color: var(--color-black);
 }
 
 .tab-content {
-  background-color: #f9f9f9;
+  background-color: white;
   padding: 15px;
   border-radius: 5px;
-  color: #0a0a0a;
+  color: var(--color-black);
+}
+
+/******************************************************* carrousel */
+
+.gallery-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+}
+
+.product-gallery {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-gallery__item {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.product-image {
+  width: 100%;
+  display: block;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 24px;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+/******************************************************* modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #e0e0e0;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.modal-carousel {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-track {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.modal-track img {
+  flex: 0 0 100%;
+  max-width: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+}
+
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #e0e0e0;
+  font-size: 48px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.modal-nav.prev {
+  left: 20px;
+}
+
+.modal-nav.next {
+  right: 20px;
 }
 
 /* Responsive */
