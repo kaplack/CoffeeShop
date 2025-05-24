@@ -1,3 +1,6 @@
+/* ========================
+   VARIABLES Y LAYOUT
+========================= */
 :root {
   --color-black: #0a0a0a;
   --color-light-gray: #e0e0e0;
@@ -7,7 +10,6 @@
   --color-dark-red: #900020;
 }
 
-/* Layout general */
 body {
   font-family: "Montserrat", sans-serif;
   background: #fff;
@@ -16,13 +18,15 @@ body {
   max-width: 1200px;
   margin: auto;
 }
+
 .row {
   max-width: 900px;
   margin: auto;
 }
 
-/*******************************************************  */
-
+/* ========================
+   SECCIÓN PRODUCTO
+========================= */
 .product-page {
   display: flex;
   flex-wrap: wrap;
@@ -49,17 +53,19 @@ body {
   margin-bottom: 10px;
 }
 
-/******************************************************* Image Gallery */
-
+/* ========================
+   GALERÍA DE IMÁGENES
+========================= */
 .product-gallery {
-  /*display: flex;*/
   gap: 10px;
   padding-left: 0;
   list-style: none;
 }
+
 .product-gallery__item {
   width: 100%;
 }
+
 .product-gallery__item img {
   width: 100%;
   min-width: 100px;
@@ -67,8 +73,9 @@ body {
   cursor: pointer;
 }
 
-/******************************************************* radio */
-
+/* ========================
+   RADIO OPTIONS
+========================= */
 .radio-group {
   display: flex;
   flex-wrap: wrap;
@@ -103,11 +110,12 @@ body {
   border-color: var(--color-dark-red);
 }
 
-/******************************************************** atributos */
+/* ========================
+   ATRIBUTOS DE PRODUCTO
+========================= */
 .attributes {
   display: flex;
   flex-direction: column;
-
   font-family: Arial, sans-serif;
 }
 
@@ -119,7 +127,6 @@ body {
 
 .label {
   width: 100px;
-
   color: var(--color-black);
 }
 
@@ -139,8 +146,9 @@ body {
   background-color: var(--color-light-green);
 }
 
-/******************************************************* Product content */
-
+/* ========================
+   PRECIO Y DESCRIPCIÓN CORTA
+========================= */
 .price {
   color: var(--color-dark-red);
   font-weight: bold;
@@ -192,10 +200,13 @@ body {
   border-radius: 5px;
 }
 
-/********************************************************* General Description */
+/* ========================
+   TABLA DE INFORMACIÓN
+========================= */
 .description {
   flex: 1 0 400px;
 }
+
 .product-info-table {
   width: 100%;
   border-collapse: collapse;
@@ -208,48 +219,59 @@ body {
   border: 1px solid var(--color-light-gray);
 }
 
-/********************************************************* Contenedor rojo: pestañas y contenido */
-.tabs-container {
-  width: 100%;
+/* ========================
+   ACORDEÓN PERSONALIZADO
+========================= */
 
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.tabs {
+.accordion {
+  flex: 1 0 100%;
   display: flex;
+  flex-direction: column;
   gap: 10px;
-  border-bottom: 2px solid var(--color-light-gray);
-  margin-bottom: 10px;
-  flex-wrap: wrap;
 }
 
-.tab {
-  background: none;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-bottom: 3px solid transparent;
-  color: var(--color-light-gray);
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--color-black);
   font-weight: bold;
-}
-
-.tab.active {
-  border-bottom: 3px solid var(--color-forest-green);
-  background-color: var(--color-light-gray);
-  color: var(--color-black);
-}
-
-.tab-content {
-  background-color: white;
-  padding: 15px;
+  padding: 10px;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   border-radius: 5px;
-  color: var(--color-black);
 }
 
-/********************************************************************** SWIPER */
+.accordion-header:hover {
+  background-color: var(--color-forest-green);
+  color: white;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: white;
+  padding: 0 10px;
+  border-radius: 0 0 5px 5px;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px; /* Ajusta según el contenido */
+  padding: 10px;
+}
+
+.accordion-item.active .accordion-header {
+  background-color: var(--color-dark-red);
+  color: white;
+}
+
+/* ========================
+   SWIPER
+========================= */
 .swiper {
-  /* width: 100vw; */
   max-width: 600px;
   height: 400px;
   margin: 2rem auto;
@@ -259,7 +281,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: #f2f2f2; */
 }
 
 .swiper-slide img {
@@ -269,7 +290,6 @@ body {
   cursor: pointer;
 }
 
-/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -310,28 +330,51 @@ body {
   max-height: 100vh;
   object-fit: contain;
 }
+
 .swiper-button-next,
 .swiper-button-prev {
   color: var(--color-forest-green) !important;
 }
+
 .swiper-pagination-bullet-active {
   background-color: var(--color-forest-green) !important;
 }
 
-/* Responsive */
+/* ========================
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
   .header-image,
   .product-details {
     width: 100%;
   }
+
+  .tabs-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tabs {
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  .tab {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid var(--color-light-gray);
+    background: white;
+    color: var(--color-black);
+    padding: 10px;
+  }
+
+  .tab.active {
+    background: var(--color-light-gray);
+  }
 }
 
 @media (max-width: 600px) {
   .tab .label {
-    display: none;
-  }
-
-  .tab.active .label {
     display: inline;
     margin-left: 5px;
   }

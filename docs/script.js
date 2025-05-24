@@ -64,15 +64,52 @@ window.addEventListener("keydown", (e) => {
 
 // TABS
 function showTab(tabId, event) {
-  const tabs = document.querySelectorAll(".tab-content");
-  tabs.forEach((tab) => (tab.style.display = "none"));
+  const isMobile = window.innerWidth <= 768;
 
-  document.getElementById(tabId).style.display = "block";
+  // Obtiene todos los botones y contenidos
+  const tabs = document.querySelectorAll(".tab");
+  const contents = document.querySelectorAll(".tab-content");
 
-  document
-    .querySelectorAll(".tab")
-    .forEach((button) => button.classList.remove("active"));
+  if (isMobile) {
+    // Si ya está visible, ocúltalo
+    const target = document.getElementById(tabId);
+    const isOpen = target.classList.contains("active");
 
-  // ✅ Esta línea es segura y consistente
-  event.currentTarget.classList.add("active");
+    contents.forEach((c) => c.classList.remove("active"));
+    if (!isOpen) {
+      target.classList.add("active");
+    }
+  } else {
+    tabs.forEach((tab) => tab.classList.remove("active"));
+    event.currentTarget.classList.add("active");
+
+    contents.forEach((content) => {
+      content.classList.remove("active");
+    });
+
+    const target = document.getElementById(tabId);
+    target.classList.add("active");
+  }
 }
+
+document.querySelectorAll(".accordion-header").forEach((header) => {
+  header.addEventListener("click", () => {
+    const item = header.parentElement;
+    const isActive = item.classList.contains("active");
+
+    // Cerrar todas las secciones
+    document.querySelectorAll(".accordion-item").forEach((i) => {
+      i.classList.remove("active");
+      i.querySelector(".accordion-header").setAttribute(
+        "aria-expanded",
+        "false"
+      );
+    });
+
+    // Si la sección no estaba activa, abrirla
+    if (!isActive) {
+      item.classList.add("active");
+      header.setAttribute("aria-expanded", "true");
+    }
+  });
+});
