@@ -259,7 +259,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f2f2f2;
+  /* background: #f2f2f2; */
 }
 
 .swiper-slide img {
@@ -309,6 +309,13 @@ body {
   max-width: 100vw;
   max-height: 100vh;
   object-fit: contain;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--color-forest-green) !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--color-forest-green) !important;
 }
 
 /* Responsive */
